@@ -35,7 +35,7 @@ def create_nf_entry(conn, nf_entry):
     Create a new project into the projects table
     :param conn:
     :param nf_entry:
-    :return: nf_entries_id
+    :return nf_entries id:
     """
     sql = ''' INSERT INTO nf_entries(name,url)
               VALUES(?,?) '''
@@ -49,7 +49,7 @@ def create_feed(conn, feeds):
     Create a new task
     :param conn:
     :param feeds:
-    :return:
+    :return feeds id:
     """
     sql = ''' INSERT INTO feeds(name,nf_entries_id)
               VALUES(?,?) '''
@@ -90,6 +90,11 @@ def main():
         nf_entry_id_3 = create_nf_entry(conn, nf_entry)
         nf_entry = ('Reuters Technology', 'http://feeds.reuters.com/reuters/technologyNews?format=xml')
         nf_entry_id_4 = create_nf_entry(conn, nf_entry)
+        # feeds
+        feed_1 = ('BBC News UK', nf_entry_id_1)
+        feed_2 = ('BBC News Technology', nf_entry_id_2)
+        feed_3 = ('Reuters UK', nf_entry_id_3)
+        feed_4 = ('Reuters Technology', nf_entry_id_4)
 
     else:
         print("Error! cannot create the database connection.")
