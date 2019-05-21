@@ -15,18 +15,40 @@ def main():
     f3 = MyFeed(nf_entry="Reuters UK", nf_url="http://feeds.reuters.com/reuters/UKdomesticNews?format=xml")
     f4 = MyFeed(nf_entry="Reuters Technology", nf_url="http://feeds.reuters.com/reuters/technologyNews?format=xml")
 
+    # RSS Feed elements to be gathered in the Database
+
+    # News feed entry title
     nf_title = pxd.parse_xml(f1.nf_url, 'channel', 'title')
     print(nf_title)
 
+    # News Feed entry description
     nf_description = pxd.parse_xml(f1.nf_url, 'channel', 'description')
     print(nf_description)
 
+    # News Feed entry link
     nf_link = pxd.parse_xml(f1.nf_url, 'channel', 'link')
     print(nf_link)
 
-    feed_titles = pxd.parse_xml(f1.nf_url, 'channel/item', 'title')
-
-    for x in feed_titles:
+    # News Feed entry feeds
+    # Feeds titles
+    feeds_titles = pxd.parse_xml(f1.nf_url, 'channel/item', 'title')
+    for x in feeds_titles:
+        print('t')
+        print(x)
+    # Feeds description
+    feeds_descriptions = pxd.parse_xml(f1.nf_url, 'channel/item', 'description')
+    for x in feeds_descriptions:
+        print('d')
+        print(x)
+    # Feeds link
+    feeds_links = pxd.parse_xml(f1.nf_url, 'channel/item', 'link')
+    for x in feeds_links:
+        print('l')
+        print(x)
+    # Feeds publish date
+    feeds_pubdate = pxd.parse_xml(f1.nf_url, 'channel/item', 'pubDate')
+    for x in feeds_pubdate:
+        print('p')
         print(x)
 
 
