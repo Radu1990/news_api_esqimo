@@ -19,7 +19,6 @@ def main():
 
     # News feed entry title
     nf_title = pxd.parse_xml(f1.nf_url, 'channel', 'title')
-
     # News Feed entry description
     nf_description = pxd.parse_xml(f1.nf_url, 'channel', 'description')
 
@@ -42,16 +41,22 @@ def main():
     # create a database connection
     conn = dbf.create_connection(database)
     if conn is not None:
-        # create news feed entries table
-        dbf.create_table(conn, dbf.sql_create_nf_entries_table)
-        # create feeds table
-        dbf.create_table(conn, dbf.sql_create_feeds_table)
-        # create a new news feed entry
-        nf_entry = (nf_title, nf_description, nf_link)
-        nf_entry_id_1 = dbf.create_nf_entry(conn, nf_entry)
+        with conn:
+            # create nf_entries table
+            dbf.create_table(conn, dbf.sql_create_nf_entries_table)
+            # create feeds table
+            dbf.create_table(conn, dbf.sql_create_feeds_table)
 
-        # feeds
-        feed_1 = ('BBC News UK', nf_entry_id_1)
+            # create a new news feed entry
+            my_feed_entry_1 = (nf_title[0], nf_description[0], nf_link[0])
+            nf_entry_id_1 = dbf.create_nf_entry(conn, my_feed_entry_1)
+            # create feeds
+            for i in range(len(feeds_titles)):
+                my_feed = (feeds_titles[i], feeds_descriptions[i], feeds_links[i], feeds_pubdate[i], nf_entry_id_1)
+                dbf.create_feed(conn, my_feed)
+
+
+
 
     else:
         print("Error! cannot create the database connection.")

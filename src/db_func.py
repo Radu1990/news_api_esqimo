@@ -57,7 +57,7 @@ def create_nf_entry(conn, nf_entry):
     :param nf_entry:
     :return nf_entries id:
     """
-    sql = ''' INSERT INTO nf_entries(title, description, link)
+    sql = ''' INSERT INTO nf_entries(title,description,link)
               VALUES(?,?,?) '''
     cur = conn.cursor()
     cur.execute(sql, nf_entry)
@@ -76,3 +76,10 @@ def create_feed(conn, feeds):
     cur = conn.cursor()
     cur.execute(sql, feeds)
     return cur.lastrowid
+
+
+def fetch_all(conn):
+    cur = conn.cursor()  # get a cursor
+    cur.execute("SELECT * FROM nf_entries")  # execute a simple SQL select query
+    jobs = cur.fetchall()  # get all the results from the above query
+    return jobs
