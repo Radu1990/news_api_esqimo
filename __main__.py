@@ -4,8 +4,6 @@ from collections import namedtuple
 
 
 def main():
-    # where our DB is stored
-    database = "/home/cho/PYTHON/news_api_esqimo/db/rssnews.db"
 
     # RSS Feeds from Assignment
     MyFeed = namedtuple("MyFeed", "nf_entry nf_url")
@@ -15,8 +13,8 @@ def main():
     f3 = MyFeed(nf_entry="Reuters UK", nf_url="http://feeds.reuters.com/reuters/UKdomesticNews?format=xml")
     f4 = MyFeed(nf_entry="Reuters Technology", nf_url="http://feeds.reuters.com/reuters/technologyNews?format=xml")
 
+    # -----------------------------------------------------------------------------------------------------------------
     # RSS Feed elements to be gathered in the Database
-
     # News feed entry title
     nf_title = pxd.parse_xml(f1.nf_url, 'channel', 'title')
     # News Feed entry description
@@ -37,9 +35,10 @@ def main():
 
     # Feeds publish date
     feeds_pubdate = pxd.parse_xml(f1.nf_url, 'channel/item', 'pubDate')
+    # -----------------------------------------------------------------------------------------------------------------
 
     # create a database connection
-    conn = dbf.create_connection(database)
+    conn = dbf.create_connection(dbf.database)
     if conn is not None:
         with conn:
             # create nf_entries table
@@ -50,13 +49,10 @@ def main():
             # create a new news feed entry
             my_feed_entry_1 = (nf_title[0], nf_description[0], nf_link[0])
             nf_entry_id_1 = dbf.create_nf_entry(conn, my_feed_entry_1)
-            # create feeds
+            # create feeds for our feed entry
             for i in range(len(feeds_titles)):
                 my_feed = (feeds_titles[i], feeds_descriptions[i], feeds_links[i], feeds_pubdate[i], nf_entry_id_1)
                 dbf.create_feed(conn, my_feed)
-
-
-
 
     else:
         print("Error! cannot create the database connection.")

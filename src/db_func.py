@@ -1,6 +1,9 @@
 import sqlite3
 from sqlite3 import Error
 
+# where our DB is stored
+database = "/home/cho/PYTHON/news_api_esqimo/db/rssnews.db"
+
 
 def create_connection(db_file):
     """ create a database connection to the SQLite database
@@ -78,6 +81,7 @@ def create_feed(conn, feeds):
     return cur.lastrowid
 
 
+# just for test
 def fetch_all(conn):
     cur = conn.cursor()  # get a cursor
     cur.execute("SELECT * FROM nf_entries")  # execute a simple SQL select query
