@@ -4,6 +4,8 @@ from collections import namedtuple
 
 
 def main():
+    # where our DB is stored
+    database = "/home/cho/PYTHON/news_api_esqimo/db/rssnews.db"
 
     # RSS Feeds from Assignment
     MyFeed = namedtuple("MyFeed", "nf_entry nf_url")
@@ -38,7 +40,7 @@ def main():
     # -----------------------------------------------------------------------------------------------------------------
 
     # create a database connection
-    conn = dbf.create_connection(dbf.database)
+    conn = dbf.create_connection(database)
     if conn is not None:
         with conn:
             # create nf_entries table
