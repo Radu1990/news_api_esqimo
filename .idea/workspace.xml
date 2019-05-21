@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2b506c4f-99dc-4abf-93da-cbf90e83b7bf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__main__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db_func.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/db_func.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,11 +32,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/__main__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
+            <state relative-caret-position="450">
+              <caret line="53" column="47" lean-forward="true" selection-start-line="53" selection-start-column="47" selection-end-line="53" selection-end-column="47" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -43,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/db_func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1071">
-              <caret line="51" column="21" lean-forward="true" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
+            <state relative-caret-position="177">
+              <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -90,6 +91,7 @@
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
         <option value="$PROJECT_DIR$/src/parse_xml_data.py" />
         <option value="$PROJECT_DIR$/__main__.py" />
+        <option value="$PROJECT_DIR$/src/db_func.py" />
       </list>
     </option>
   </component>
@@ -115,6 +117,11 @@
               <item name="news_api_esqimo" type="b2602c69:ProjectViewProjectNode" />
               <item name="news_api_esqimo" type="462c0819:PsiDirectoryNode" />
               <item name="db" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="news_api_esqimo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="news_api_esqimo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="news_api_esqimo" type="b2602c69:ProjectViewProjectNode" />
@@ -223,12 +230,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1558441312125</updated>
-      <workItem from="1558441313196" duration="17513000" />
+      <workItem from="1558441313196" duration="18945000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17513000" />
+    <option name="totallyTimeSpent" value="18945000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="990" extended-state="6" />
@@ -244,7 +251,7 @@
       <window_info anchor="bottom" id="Event Log" sideWeight="0.50053364" side_tool="true" weight="0.514758" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3293979" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4994664" visible="true" weight="0.26210153" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4994664" visible="true" weight="0.19362456" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -325,22 +332,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/db_func.py">
+    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/python_stubs/-1247971763/lxml/etree/XSLTExtension.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="51" column="21" lean-forward="true" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="214">
+          <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/__main__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
+        <state relative-caret-position="450">
+          <caret line="53" column="47" lean-forward="true" selection-start-line="53" selection-start-column="47" selection-end-line="53" selection-end-column="47" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/db_func.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
