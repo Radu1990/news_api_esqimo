@@ -5,7 +5,7 @@ from collections import namedtuple
 
 def main():
     # where our DB is stored
-    database = "/home/cho/PYTHON/news_api_esqimo/sqlite/db/rssnews.db"
+    database = "/home/cho/PYTHON/news_api_esqimo/db/rssnews.db"
 
     # RSS Feeds from Assignment
     MyFeed = namedtuple("MyFeed", "nf_entry nf_url")
@@ -15,12 +15,20 @@ def main():
     f3 = MyFeed(nf_entry="Reuters UK", nf_url="http://feeds.reuters.com/reuters/UKdomesticNews?format=xml")
     f4 = MyFeed(nf_entry="Reuters Technology", nf_url="http://feeds.reuters.com/reuters/technologyNews?format=xml")
 
-    nf_title = pxd.nf_title(f1.nf_url)
-    nf_description = pxd.nf_description(f1.nf_url)
-    nf_link = pxd.nf_link(f1.nf_url)
+    nf_title = pxd.parse_xml(f1.nf_url, 'channel', 'title')
     print(nf_title)
+
+    nf_description = pxd.parse_xml(f1.nf_url, 'channel', 'description')
     print(nf_description)
+
+    nf_link = pxd.parse_xml(f1.nf_url, 'channel', 'link')
     print(nf_link)
+
+    feed_titles = pxd.parse_xml(f1.nf_url, 'channel/item', 'title')
+
+    for x in feed_titles:
+        print(x)
+
 
     # HINT!
     # nf_entries = news feed entries
