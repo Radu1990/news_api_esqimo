@@ -3,9 +3,16 @@ import src.parse_xml_data as pxd
 
 
 def main():
+    # where our DB is stored
     database = "/home/cho/PYTHON/news_api_esqimo/sqlite/db/rssnews.db"
 
-    # nf_entries = news feed entries
+    # RSS Feeds from Assignment - Start
+    link_1 = "http://feeds.bbci.co.uk/news/uk/rss.xml"
+    link_2 = "http://feeds.bbci.co.uk/news/technology/rss.xml"
+    link_3 = "http://feeds.reuters.com/reuters/UKdomesticNews?format=xml"
+    link_4 = "http://feeds.reuters.com/reuters/technologyNews?format=xml"
+
+    # HINT nf_entries = news feed entries
     sql_create_nf_entries_table = """ CREATE TABLE IF NOT EXISTS nf_entries ( 
                                         id INTEGER PRIMARY KEY,
                                         name TEXT NOT NULL,
@@ -27,13 +34,13 @@ def main():
         # create feeds table
         dbf.create_table(conn, sql_create_feeds_table)
         # create some new news feed entries
-        nf_entry = ('BBC News UK', 'http://feeds.bbci.co.uk/news/uk/rss.xml')
+        nf_entry = ('BBC News UK', link_1)
         nf_entry_id_1 = dbf.create_nf_entry(conn, nf_entry)
-        nf_entry = ('BBC News Technology', 'http://feeds.bbci.co.uk/news/technology/rss.xml')
+        nf_entry = ('BBC News Technology', link_2)
         nf_entry_id_2 = dbf.create_nf_entry(conn, nf_entry)
-        nf_entry = ('Reuters UK', 'http://feeds.reuters.com/reuters/UKdomesticNews?format=xml')
+        nf_entry = ('Reuters UK', link_3)
         nf_entry_id_3 = dbf.create_nf_entry(conn, nf_entry)
-        nf_entry = ('Reuters Technology', 'http://feeds.reuters.com/reuters/technologyNews?format=xml')
+        nf_entry = ('Reuters Technology', link_4)
         nf_entry_id_4 = dbf.create_nf_entry(conn, nf_entry)
         # feeds
         feed_1 = ('BBC News UK', nf_entry_id_1)
@@ -44,7 +51,7 @@ def main():
     else:
         print("Error! cannot create the database connection.")
 
-    pxd.parse_xml_data()
+    pxd.parse_xml_data(link_1)
 
 
 if __name__ == '__main__':

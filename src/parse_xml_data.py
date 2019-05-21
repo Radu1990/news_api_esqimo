@@ -12,13 +12,12 @@ import xml.etree.ElementTree as elTree
 """
 
 
-def parse_xml_data():
+def parse_xml_data(address):
     """
     Parse xml data from specified URL
     :param address:
     :return -:
     """
-    address = 'http://feeds.bbci.co.uk/news/uk/rss.xml'
     while True:
         # break if url address is too short
         if len(address) < 1:
@@ -36,3 +35,5 @@ def parse_xml_data():
         for item in items:
             title_string = item.find("title").text
             print("Title value is ", title_string)
+
+        break
