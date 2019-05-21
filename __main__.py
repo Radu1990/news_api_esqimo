@@ -6,13 +6,14 @@ def main():
     # where our DB is stored
     database = "/home/cho/PYTHON/news_api_esqimo/sqlite/db/rssnews.db"
 
-    # RSS Feeds from Assignment - Start
+    # RSS Feeds from Assignment
     link_1 = "http://feeds.bbci.co.uk/news/uk/rss.xml"
     link_2 = "http://feeds.bbci.co.uk/news/technology/rss.xml"
     link_3 = "http://feeds.reuters.com/reuters/UKdomesticNews?format=xml"
     link_4 = "http://feeds.reuters.com/reuters/technologyNews?format=xml"
 
-    # HINT nf_entries = news feed entries
+    # HINT!
+    # nf_entries = news feed entries
     sql_create_nf_entries_table = """ CREATE TABLE IF NOT EXISTS nf_entries ( 
                                         id INTEGER PRIMARY KEY,
                                         name TEXT NOT NULL,
@@ -51,7 +52,9 @@ def main():
     else:
         print("Error! cannot create the database connection.")
 
-    pxd.parse_xml_data(link_1)
+    xml_titles = pxd.parse_xml_titles(link_1)
+    for x in xml_titles:
+        print(x)
 
 
 if __name__ == '__main__':

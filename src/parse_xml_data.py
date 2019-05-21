@@ -12,11 +12,11 @@ import xml.etree.ElementTree as elTree
 """
 
 
-def parse_xml_data(address):
+def parse_xml_titles(address):
     """
     Parse xml data from specified URL
     :param address:
-    :return -:
+    :return map:
     """
     while True:
         # break if url address is too short
@@ -32,8 +32,14 @@ def parse_xml_data(address):
 
         items = tree.findall('channel/item')
 
-        for item in items:
-            title_string = item.find("title").text
-            print("Title value is ", title_string)
+        # create an empty list for our titles
+        titles = []
 
-        break
+        # loop through all xml items
+        for item in items:
+            # search for title
+            title_string = item.find("title").text
+            # add it to list
+            titles.append(title_string)
+
+        return titles
