@@ -46,7 +46,7 @@ def test_get_feed_4():
     assert_that(resp.ok, 'HTTP Request OK').is_true()
 
 
-# Test get feed
+# Test get all feeds
 # --------------------------------------------------------
 def test_get_all_feeds():
     resp = rf.get_all_feeds()

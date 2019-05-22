@@ -24,10 +24,10 @@ ma = Marshmallow(app)
 # --------------------------------------------------------
 class Feed(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(80), unique=True)
-    description = db.Column(db.String(120), unique=True)
-    url = db.Column(db.String(120), unique=True)
-    category = db.Column(db.String(80), unique=False)
+    title = db.Column(db.String(80), nullable=False)
+    description = db.Column(db.String(120), nullable=False)
+    url = db.Column(db.String(120), unique=True, nullable=False)
+    category = db.Column(db.String(80), nullable=False)
 
     def __init__(self, title, description, url, category):
         self.title = title
@@ -132,6 +132,12 @@ class FeedEntry(db.Model):
         self.url = url
         self.category = category
 
+
+# TODO if ID exists dont add in tabel
+# GUID numarul trebuie sa fie unic read din baza de date si apoi write daca nu exista
+# 1 git clone
+# 2 totul intr-un readme: se instaleaza dependintele cu venv cu pip install + testing
+# cum se ruleaza testele automat cu o singura linie deschis server + RULAT TESTE + inchis server
 
 if __name__ == '__main__':
     app.run(debug=True)
