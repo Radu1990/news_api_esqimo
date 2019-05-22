@@ -1,6 +1,6 @@
 name = input("Enter file:")
 if len(name) < 1:
-    name = "assignment_input.txt"
+    name = "./_txt/assignment_input._txt"
 handle = open(name)
 list_of_urls = []
 

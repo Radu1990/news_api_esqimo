@@ -19,14 +19,14 @@ def create_connection(db_file):
 
 # HINT!
 # nf_entries = news feed entries
-sql_create_nf_entries_table = """CREATE TABLE IF NOT EXISTS feeds ( 
+sql_create_feeds_table = """CREATE TABLE IF NOT EXISTS feeds ( 
                                     id INTEGER PRIMARY KEY,
                                     title TEXT NOT NULL,
                                     description TEXT NOT NULL,
                                     link TEXT NOT NULL
                                 );"""
 
-sql_create_feeds_table = """CREATE TABLE IF NOT EXISTS nf_entries (
+sql_create_nf_entries_table = """CREATE TABLE IF NOT EXISTS nf_entries (
                                 id INTEGER PRIMARY KEY,
                                 title TEXT NOT NULL,
                                 description TEXT NOT NULL,
