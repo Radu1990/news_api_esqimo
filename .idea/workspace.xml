@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b506c4f-99dc-4abf-93da-cbf90e83b7bf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/_unittests/restful_feeds.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_unittests/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_unittests/restful_feeds.py" beforeDir="false" afterPath="$PROJECT_DIR$/_unittests/restful_feeds.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_unittests/test_restful_feeds.py" beforeDir="false" afterPath="$PROJECT_DIR$/_unittests/test_restful_feeds.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/crud.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/crud.sqlite" beforeDir="false" />
     </list>
@@ -33,8 +33,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/__main__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+            <state relative-caret-position="1302">
+              <caret line="64" selection-start-line="64" selection-end-line="64" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -43,21 +43,9 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/db_func.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-840">
-              <caret line="25" column="54" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/crud.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2478">
+            <state relative-caret-position="441">
               <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
@@ -66,32 +54,35 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_unittests/test_restful_feeds.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="131">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
               <folding>
-                <element signature="e#0#31#0" expanded="true" />
+                <element signature="e#0#37#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file:///usr/local/lib/python3.6/dist-packages/assertpy/assertpy.py">
+        <entry file="file://$PROJECT_DIR$/_unittests/restful_feeds.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="252" column="8" selection-start-line="252" selection-start-column="8" selection-end-line="252" selection-end-column="8" />
+            <state relative-caret-position="215">
+              <caret line="37" column="25" lean-forward="true" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file:///usr/lib/python3/dist-packages/requests/models.py">
+        <entry file="file://$PROJECT_DIR$/_unittests/feed_generator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="867" column="8" selection-start-line="867" selection-start-column="8" selection-end-line="867" selection-end-column="8" />
+            <state relative-caret-position="21">
+              <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -137,11 +128,11 @@
         <option value="$PROJECT_DIR$/src/parse_input_data.py" />
         <option value="$PROJECT_DIR$/src/CRUD.py" />
         <option value="$PROJECT_DIR$/src/db_func.py" />
-        <option value="$PROJECT_DIR$/src/crud.py" />
         <option value="$PROJECT_DIR$/_unittests/tests.py" />
+        <option value="$PROJECT_DIR$/_unittests/feed_generator.py" />
         <option value="$PROJECT_DIR$/_unittests/test_restful_feeds.py" />
         <option value="$PROJECT_DIR$/_unittests/restful_feeds.py" />
-        <option value="$PROJECT_DIR$/_unittests/feed_generator.py" />
+        <option value="$PROJECT_DIR$/src/crud.py" />
       </list>
     </option>
   </component>
@@ -186,7 +177,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/_unittests" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/_unittests/test_restful_feeds.py" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -214,7 +205,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.tests">
+  <component name="RunManager" selected="Python tests.pytest for restful feeds">
     <configuration name="crud" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="news_api_esqimo" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -281,7 +272,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="scratch" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="test_restful_feeds" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="news_api_esqimo" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -289,12 +280,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/_unittests" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/_unittests/test_restful_feeds.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -325,13 +316,37 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="pytest for restful feeds" type="tests" factoryName="py.test">
+      <module name="news_api_esqimo" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="/usr/bin/python3.6" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/_unittests" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/_unittests/test_restful_feeds.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.crud" />
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.parse_input_data" />
+      <item itemvalue="Python.test_restful_feeds" />
+      <item itemvalue="Python.tests" />
+      <item itemvalue="Python tests.pytest for restful feeds" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test_restful_feeds" />
         <item itemvalue="Python.tests" />
         <item itemvalue="Python.crud" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.parse_input_data" />
-        <item itemvalue="Python.scratch" />
       </list>
     </recent_temporary>
   </component>
@@ -346,12 +361,39 @@
       <option name="presentableId" value="Default" />
       <updated>1558441312125</updated>
       <workItem from="1558441313196" duration="30986000" />
-      <workItem from="1558516604906" duration="18660000" />
+      <workItem from="1558516604906" duration="19574000" />
+      <workItem from="1558537360381" duration="1482000" />
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="pytest_for_restful_feeds - 2019.05.22 at 17h 10m 55s.xml">
+      <configuration name="pytest for restful feeds" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_for_restful_feeds - 2019.05.22 at 17h 11m 36s.xml">
+      <configuration name="pytest for restful feeds" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_for_restful_feeds - 2019.05.22 at 17h 12m 43s.xml">
+      <configuration name="pytest for restful feeds" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_for_restful_feeds - 2019.05.22 at 17h 14m 04s.xml">
+      <configuration name="pytest for restful feeds" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_for_restful_feeds - 2019.05.22 at 17h 16m 10s.xml">
+      <configuration name="pytest for restful feeds" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_for_restful_feeds - 2019.05.22 at 17h 19m 24s.xml">
+      <configuration name="pytest for restful feeds" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_for_restful_feeds - 2019.05.22 at 17h 20m 28s.xml">
+      <configuration name="pytest for restful feeds" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_for_restful_feeds - 2019.05.22 at 17h 23m 10s.xml">
+      <configuration name="pytest for restful feeds" configurationId="tests" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49646000" />
+    <option name="totallyTimeSpent" value="52042000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -364,14 +406,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="990" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.14887941" />
-      <window_info anchor="bottom" id="Database Console" weight="0.3293979" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.15048026" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32821724" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4994664" visible="true" weight="0.338843" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49893278" visible="true" weight="0.459268" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -379,9 +419,10 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" weight="0.3293979" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3293979" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50053364" side_tool="true" weight="0.514758" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5010672" side_tool="true" weight="0.459268" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.25383708" />
       <window_info anchor="bottom" id="Python Console" order="12" />
+      <window_info anchor="bottom" id="Database Console" order="13" weight="0.3293979" />
       <window_info anchor="right" id="SciView" order="0" weight="0.32977587" />
       <window_info anchor="right" id="Database" order="1" weight="0.32977587" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="2" type="SLIDING" weight="0.4" />
@@ -397,7 +438,9 @@
     <SUITE FILE_PATH="coverage/news_api_esqimo$crud.coverage" NAME="crud Coverage Results" MODIFIED="1558530677402" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/news_api_esqimo$scratch.coverage" NAME="scratch Coverage Results" MODIFIED="1558451329480" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
     <SUITE FILE_PATH="coverage/news_api_esqimo$main.coverage" NAME="main Coverage Results" MODIFIED="1558520870512" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/news_api_esqimo$pytest_for_restful_feeds.coverage" NAME="pytest for restful feeds Coverage Results" MODIFIED="1558538590066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/_unittests" />
     <SUITE FILE_PATH="coverage/news_api_esqimo$parse_input_data.coverage" NAME="parse_input_data Coverage Results" MODIFIED="1558470691631" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/news_api_esqimo$test_restful_feeds.coverage" NAME="test_restful_feeds Coverage Results" MODIFIED="1558537057329" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/_unittests" />
     <SUITE FILE_PATH="coverage/news_api_esqimo$tests.coverage" NAME="tests Coverage Results" MODIFIED="1558536043784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/_unittests" />
   </component>
   <component name="editorHistoryManager">
@@ -564,23 +607,10 @@
     <entry file="file://$PROJECT_DIR$/_unittests/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/db_func.py">
+    <entry file="file:///usr/local/lib/python3.6/dist-packages/assertpy/assertpy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-840">
-          <caret line="25" column="54" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/__main__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="4305">
+          <caret line="215" column="54" lean-forward="true" selection-start-line="215" selection-start-column="54" selection-end-line="215" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -591,46 +621,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/lib/python3.6/dist-packages/assertpy/assertpy.py">
+    <entry file="file:///usr/local/lib/python3.6/dist-packages/assertpy/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="252" column="8" selection-start-line="252" selection-start-column="8" selection-end-line="252" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_unittests/test_restful_feeds.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state>
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_unittests/restful_feeds.py">
+    <entry file="file://$PROJECT_DIR$/src/db_func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="231">
+          <caret line="76" column="27" lean-forward="true" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/__main__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1302">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_unittests/feed_generator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        <state relative-caret-position="21">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/crud.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2478">
+        <state relative-caret-position="441">
           <caret line="118" lean-forward="true" selection-start-line="118" selection-end-line="118" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_unittests/restful_feeds.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="37" column="25" lean-forward="true" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_unittests/test_restful_feeds.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>

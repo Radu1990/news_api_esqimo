@@ -3,7 +3,7 @@ import _unittests.feed_generator as fg
 
 
 def _url(path):
-    return 'http://localhost:5000/' + path
+    return 'http://localhost:5000' + path
 
 
 def get_feeds(title="", description="", url="", category=""):
@@ -24,7 +24,7 @@ def get_feeds(title="", description="", url="", category=""):
 
 
 def describe_feed(feed_id):
-    return requests.get('http://localhost:5000/feed/{:d}'.format(feed_id))
+    return requests.get('http://localhost:5000/feed/{:d}/'.format(feed_id))
 
 
 def add_random_feed():
@@ -36,12 +36,12 @@ def add_feed(feed):
 
 
 def remove_feed(feed_id):
-    return requests.delete(_url('/booking/{:d}'.format(feed_id)))
+    return requests.delete(_url('/booking/{:d}/'.format(feed_id)))
 
 
 def update_feed(feed_id, title='Realitatea', description='Stiri online',
                 url='http://rss.realitatea.net/stiri.xml', category='News'):
-    return requests.put(_url('/booking/{:d}'.format(feed_id)), json={
+    return requests.put(_url('/booking/{:d}/'.format(feed_id)), json={
         "title": title,
         "description": description,
         "url": url,

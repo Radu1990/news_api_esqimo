@@ -51,7 +51,7 @@ and user_schemas as instances of list of UserSchema
 """
 
 # endpoint to create new feed
-@app.route("/feed", methods=["POST"])
+@app.route("/feed/", methods=["POST"])
 def add_feed():
     title = request.json['title']
     description = request.json['description']
@@ -72,7 +72,7 @@ def add_feed():
 
 
 # endpoint to show all feeds
-@app.route("/feed", methods=["GET"])
+@app.route("/feed/", methods=["GET"])
 def get_feed():
     all_feeds = Feed.query.all()
     result = feeds_schema.dump(all_feeds)
@@ -80,14 +80,14 @@ def get_feed():
 
 
 # endpoint to get feed detail by id
-@app.route("/feed/<id>", methods=["GET"])
+@app.route("/feed/<id>/", methods=["GET"])
 def feed_detail(id):
     feed = Feed.query.get(id)
     return feed_schema.jsonify(feed)
 
 
 # endpoint to update feed
-@app.route("/feed/<id>", methods=["PUT"])
+@app.route("/feed/<id>/", methods=["PUT"])
 def feed_update(id):
     feed = Feed.query.get(id)
     title = request.json['title']
@@ -105,7 +105,7 @@ def feed_update(id):
 
 
 # endpoint to delete feed
-@app.route("/feed/<id>", methods=["DELETE"])
+@app.route("/feed/<id>/", methods=["DELETE"])
 def feed_delete(id):
     feed = Feed.query.get(id)
     db.session.delete(feed)
