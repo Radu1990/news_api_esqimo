@@ -1,6 +1,6 @@
 name = input("Enter file:")
 if len(name) < 1:
-    name = "esqimo_input.txt"
+    name = "assignment_input.txt"
 handle = open(name)
 list_of_urls = []
 
