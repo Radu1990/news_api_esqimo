@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b506c4f-99dc-4abf-93da-cbf90e83b7bf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/news_api_esqimo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/news_api_esqimo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_unittests/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_unittests/restful_feeds.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/restful_feeds.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_unittests/test_restful_feeds.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_restful_feeds.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/crud.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/crud.sqlite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,17 +30,26 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.49087477">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/crud.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="462">
-                  <caret line="22" column="7" lean-forward="true" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+                <state relative-caret-position="294">
+                  <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/.gitignore">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="473">
+                  <caret line="105" column="6" selection-start-line="105" selection-start-column="6" selection-end-line="105" selection-end-column="6" />
                 </state>
               </provider>
             </entry>
@@ -140,6 +143,7 @@
         <option value="$PROJECT_DIR$/tests/restful_feeds.py" />
         <option value="$PROJECT_DIR$/tests/test_restful_feeds.py" />
         <option value="$PROJECT_DIR$/src/crud.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -161,16 +165,6 @@
             <path>
               <item name="news_api_esqimo" type="b2602c69:ProjectViewProjectNode" />
               <item name="news_api_esqimo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="news_api_esqimo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="news_api_esqimo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="news_api_esqimo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="news_api_esqimo" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -323,7 +317,7 @@
       <workItem from="1558441313196" duration="30986000" />
       <workItem from="1558516604906" duration="19574000" />
       <workItem from="1558537360381" duration="8825000" />
-      <workItem from="1558550295614" duration="4339000" />
+      <workItem from="1558550295614" duration="4994000" />
     </task>
     <servers />
   </component>
@@ -360,7 +354,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63724000" />
+    <option name="totallyTimeSpent" value="64379000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -372,7 +366,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="1920" height="990" extended-state="7" />
+    <frame x="1920" y="-2" width="1920" height="1017" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
@@ -380,7 +374,7 @@
       <window_info active="true" anchor="bottom" id="Concurrent Activities Diagram" weight="0.3293979" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32821724" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49893278" visible="true" weight="0.3022432" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49893278" visible="true" weight="0.29290617" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.23494688" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -687,11 +681,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/crud.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="22" column="7" lean-forward="true" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+        <state relative-caret-position="294">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="105" column="6" selection-start-line="105" selection-start-column="6" selection-end-line="105" selection-end-column="6" />
         </state>
       </provider>
     </entry>
