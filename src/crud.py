@@ -5,20 +5,23 @@ import os
 
 """
 How to use: 
-1. $ python3.6
+1. Run $ python3.6
 2. import db object and generate SQLite database
 Use following code in python interactive shell
     >>> from crud import db
     >>> db.create_all()
+3. Run tests
 """
 
 app = Flask(__name__)
 basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'crud.sqlite')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, '../db/crud.sqlite')
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
 
 
+# Feeds
+# --------------------------------------------------------
 class Feed(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(80), unique=True)
@@ -43,7 +46,7 @@ feed_schema = FeedSchema()
 feeds_schema = FeedSchema(many=True)
 """
 This part defined structure of response of our endpoint.
-We want that all of our endpoint will have JSON response.
+We want that all of our endpoints will have JSON response.
 Here we define that our JSON response will have two keys
 (title, description, url and category). 
 Also we defined user_schema as instance of UserSchema, 
@@ -112,6 +115,22 @@ def feed_delete(id):
     db.session.commit()
 
     return feed_schema.jsonify(feed)
+
+
+# Feed Entries
+# --------------------------------------------------------
+class FeedEntry(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(80), unique=True)
+    description = db.Column(db.String(120), unique=True)
+    url = db.Column(db.String(120), unique=True)
+    category = db.Column(db.String(80), unique=False)
+
+    def __init__(self, title, description, url, category):
+        self.title = title
+        self.description = description
+        self.url = url
+        self.category = category
 
 
 if __name__ == '__main__':

@@ -24,8 +24,12 @@ def _url(path):
     return 'http://localhost:5000' + path
 
 
-def describe_feed(feed_id):
-    return requests.get('http://localhost:5000/feed/{:d}/'.format(feed_id))
+def get_feed(feed_id):
+    return requests.get(_url('/feed/{:d}/'.format(feed_id)))
+
+
+def get_all_feeds():
+    return requests.get(_url('/feed/'))
 
 
 def add_specific_feed(x):
