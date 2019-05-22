@@ -23,20 +23,20 @@ class Feed(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(80), unique=True)
     description = db.Column(db.String(120), unique=True)
-    link = db.Column(db.String(120), unique=True)
+    url = db.Column(db.String(120), unique=True)
     category = db.Column(db.String(80), unique=False)
 
-    def __init__(self, title, description, link, category):
+    def __init__(self, title, description, url, category):
         self.title = title
         self.description = description
-        self.link = link
+        self.url = url
         self.category = category
 
 
 class FeedSchema(ma.Schema):
     class Meta:
         # Fields to expose
-        fields = ('title', 'description', 'link', 'category')
+        fields = ('title', 'description', 'url', 'category')
 
 
 feed_schema = FeedSchema()
@@ -45,7 +45,7 @@ feeds_schema = FeedSchema(many=True)
 This part defined structure of response of our endpoint.
 We want that all of our endpoint will have JSON response.
 Here we define that our JSON response will have two keys
-(title, description, link and category). 
+(title, description, url and category). 
 Also we defined user_schema as instance of UserSchema, 
 and user_schemas as instances of list of UserSchema
 """
@@ -55,10 +55,10 @@ and user_schemas as instances of list of UserSchema
 def add_feed():
     title = request.json['title']
     description = request.json['description']
-    link = request.json['link']
+    url = request.json['url']
     category = request.json['category']
 
-    new_feed = Feed(title, description, link, category)
+    new_feed = Feed(title, description, url, category)
 
     db.session.add(new_feed)
     db.session.commit()
@@ -66,7 +66,7 @@ def add_feed():
     return jsonify(
         title=new_feed.title,
         description=new_feed.description,
-        link=new_feed.link,
+        url=new_feed.url,
         category=new_feed.category
     )
 
@@ -92,12 +92,12 @@ def feed_update(id):
     feed = Feed.query.get(id)
     title = request.json['title']
     description = request.json['description']
-    link = request.json['link']
+    url = request.json['url']
     category = request.json['category']
 
     feed.title = title
     feed.description = description
-    feed.link = link
+    feed.url = url
     feed.category = category
 
     db.session.commit()
