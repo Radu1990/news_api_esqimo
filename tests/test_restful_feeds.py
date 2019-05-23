@@ -56,21 +56,25 @@ def test_get_all_feeds():
 # Test remove feed
 # --------------------------------------------------------
 def test_remove_feed_1():
+    # test remove feed from db
     resp = rf.remove_feed(1)
     assert_that(resp.ok, 'HTTP Request OK').is_true()
 
 
 def test_remove_feed_2():
+    # test remove feed from db
     resp = rf.remove_feed(2)
     assert_that(resp.ok, 'HTTP Request OK').is_true()
 
 
 def test_remove_feed_3():
+    # test remove feed from db
     resp = rf.remove_feed(3)
     assert_that(resp.ok, 'HTTP Request OK').is_true()
 
 
 def test_remove_feed_4():
+    # test remove feed from db
     resp = rf.remove_feed(4)
     assert_that(resp.ok, 'HTTP Request OK').is_true()
 
@@ -78,24 +82,16 @@ def test_remove_feed_4():
 # Test edit feed
 # --------------------------------------------------------
 def test_update_feed_1():
+    # test if changing feed works
     resp = rf.update_feed(1, title='Realitatea', description='Stiri online',
                           url='http://rss.realitatea.net/stiri.xml', category='News')
     assert_that(resp.ok, 'HTTP Request OK').is_true()
 
 
-def test_update_feed_2():
+def test_update_feed_2_same_input_again():
+    # here we test if unique url relation
+    # holds
     resp = rf.update_feed(2, title='Realitatea', description='Stiri online',
                           url='http://rss.realitatea.net/stiri.xml', category='News')
-    assert_that(resp.ok, 'HTTP Request OK').is_true()
+    assert_that(resp.ok, 'HTTP Request OK').is_false()
 
-
-def test_update_feed_3():
-    resp = rf.update_feed(3, title='Realitatea', description='Stiri online',
-                          url='http://rss.realitatea.net/stiri.xml', category='News')
-    assert_that(resp.ok, 'HTTP Request OK').is_true()
-
-
-def test_update_feed_4():
-    resp = rf.update_feed(4, title='Realitatea', description='Stiri online',
-                          url='http://rss.realitatea.net/stiri.xml', category='News')
-    assert_that(resp.ok, 'HTTP Request OK').is_true()
