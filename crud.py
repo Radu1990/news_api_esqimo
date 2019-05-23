@@ -5,17 +5,6 @@ import parse_xml_data as px
 import os
 
 
-"""
-How to use: 
-1. Run $ python3.6
-2. import db object and generate SQLite database
-Use following code in python interactive shell
-    >>> from crud import db
-    >>> db.create_all()
-3. Run tests
-"""
-
-
 app = Flask(__name__)
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://' + os.path.join(basedir, '/db/crud.sqlite')
@@ -28,13 +17,14 @@ guid_db = []
 # --------------------------------------------------------
 class Feed(db.Model):
     __tablename__ = 'Feed'
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, nullable=False)
     title = db.Column(db.String(80), nullable=False)
     description = db.Column(db.String(120), nullable=False)
     url = db.Column(db.String(120), unique=True, nullable=False)
     category = db.Column(db.String(80), nullable=False)
 
     def __init__(self, title, description, url, category):
+
         self.title = title
         self.description = description
         self.url = url
@@ -44,7 +34,7 @@ class Feed(db.Model):
 class FeedSchema(ma.Schema):
     class Meta:
         # Fields to expose
-        fields = ('title', 'description', 'url', 'category')
+        fields = ('id', 'title', 'description', 'url', 'category')
 
 
 feed_schema = FeedSchema()
@@ -69,7 +59,8 @@ class FeedEntry(db.Model):
     description = db.Column(db.String(120), nullable=False)
     url = db.Column(db.String(120), unique=True, nullable=False)
     pub_date = db.Column(db.String(80), nullable=False)
-    feeds_id = db.Column(db.Integer, db.ForeignKey('Feed.id'), nullable=False)
+    feed_id = db.Column(db.Integer, db.ForeignKey("Feed.id"))
+    guid = db.Column(db.String(80), nullable=False)
 
     def __init__(self, title, description, url, pub_date, guid):
         self.title = title
@@ -77,12 +68,13 @@ class FeedEntry(db.Model):
         self.url = url
         self.pub_date = pub_date
         self.guid = guid  # global unique identifier for feed entry
+        # TODO check guid in DB when a feed entry is added
 
 
 class FeedEntrySchema(ma.Schema):
     class Meta2:
         # Fields to expose
-        fields = ('title', 'description', 'url', 'pub_date')
+        fields = ('title', 'description', 'url', 'pub_date', 'feed_id', 'guid')
 
 
 feed_entry_schema = FeedEntrySchema()
@@ -97,45 +89,37 @@ def add_feed():
     url = request.json['url']
     category = request.json['category']
 
-    # we first check if url already in db
-    exists = db.session.query(Feed.url).scalar()
+    # create new feed
+    new_feed = Feed(title=title, description=description, url=url, category=category)
 
-    if exists is not None:
-        # create new feed
-        new_feed = Feed(title, description, url, category)
+    # add it to db
+    db.session.add(new_feed)
+
+    # create new feed entries
+    nf_data = px.ParseFeed(url)
+    nf_titles = nf_data.feed_titles()
+    nf_descriptions = nf_data.feed_description()
+    nf_urls = nf_data.feed_urls()
+    nf_pubdate = nf_data.feed_pubdate()
+    nf_guid = nf_data.feed_guid()
+
+    for x in range(len(nf_titles)):
+
+        new_feed_entry = FeedEntry(title=nf_titles[x], description=nf_descriptions[x],
+                                   url=nf_urls[x],
+                                   pub_date=nf_pubdate[x], guid=nf_guid[x])
 
         # add it to db
-        db.session.add(new_feed)
-        db.session.commit()
+        db.session.add(new_feed_entry)
 
-        # create new feed entries
-        nf_data = px.ParseFeed(url)
-        nf_titles = nf_data.feed_titles()
-        nf_descriptions = nf_data.feed_description()
-        nf_urls = nf_data.feed_urls()
-        nf_pubdate = nf_data.feed_pubdate()
-        nf_guid = nf_data.feed_guid()
+    db.session.commit()
 
-        for x in range(len(nf_titles)):
-            new_feed_entry = FeedEntry(title=nf_titles[x], description=nf_descriptions[x],
-                                       url=nf_urls[x], pub_date=nf_pubdate[x], guid=nf_guid[x])
-
-            # add it to db
-            db.session.add(new_feed_entry)
-            db.session.commit()
-
-        return jsonify(
-            title=new_feed.title,
-            description=new_feed.description,
-            url=new_feed.url,
-            category=new_feed.category
-        )
-    else:
-
-        return jsonify(
-            Error='Feed already exists in DB!'
-        )
-
+    return jsonify(
+        title=new_feed.title,
+        description=new_feed.description,
+        url=new_feed.url,
+        category=new_feed.category
+    )
 
 # endpoint to show all feeds
 @app.route("/feed/", methods=["GET"])
@@ -245,10 +229,20 @@ def feed_entry_update(id):
     return feed_entry_schema.jsonify(feed_entry)
 
 
-# trebuie facute API rest care sa returneze feed in functie de combinatia aleasa (mai citeste o data ex)
 # 1 git clone
 # 2 totul intr-un readme: se instaleaza dependintele cu venv cu pip install + testing
 # cum se ruleaza testele automat cu o singura linie deschis server + RULAT TESTE + inchis server
+#apt-get install python-virtualenv
+
+"""
+How to use: 
+1. Run $ python3.6
+2. import db object and generate SQLite database
+Use following code in python interactive shell
+    >>> from crud import db
+    >>> db.create_all()
+3. Run tests
+"""
 
 if __name__ == '__main__':
     app.run(debug=True)
