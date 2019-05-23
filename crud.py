@@ -13,14 +13,13 @@ ma = Marshmallow(app)
 guid_db = []
 
 
-# Feeds
-# --------------------------------------------------------
+# Creating Feed Database Table
 class Feed(db.Model):
     __tablename__ = 'Feed'
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     title = db.Column(db.String(80), nullable=False)
     description = db.Column(db.String(120), nullable=False)
-    url = db.Column(db.String(120), unique=True, nullable=False)
+    url = db.Column(db.String(120), nullable=False)
     category = db.Column(db.String(80), nullable=False)
 
     def __init__(self, title, description, url, category):
@@ -50,14 +49,13 @@ and feed_schemas as instances of list of FeedSchema
 """
 
 
-# Feed Entries
-# --------------------------------------------------------
+# Creating Feed_entry Database Table
 class FeedEntry(db.Model):
     __tablename__ = 'Feed_entry'
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(80), nullable=False)
     description = db.Column(db.String(120), nullable=False)
-    url = db.Column(db.String(120), unique=True, nullable=False)
+    url = db.Column(db.String(120), nullable=False)
     pub_date = db.Column(db.String(80), nullable=False)
     feed_id = db.Column(db.Integer, db.ForeignKey("Feed.id"))
     guid = db.Column(db.String(80), nullable=False)
@@ -72,7 +70,7 @@ class FeedEntry(db.Model):
 
 
 class FeedEntrySchema(ma.Schema):
-    class Meta2:
+    class Meta:
         # Fields to expose
         fields = ('title', 'description', 'url', 'pub_date', 'feed_id', 'guid')
 
@@ -94,6 +92,7 @@ def add_feed():
 
     # add it to db
     db.session.add(new_feed)
+    db.session.commit()
 
     # create new feed entries
     nf_data = px.ParseFeed(url)
@@ -105,11 +104,15 @@ def add_feed():
 
     for x in range(len(nf_titles)):
 
+        guid = nf_guid[x]
+
+        # Todo check if guid is unique in DB
+        # if already in DB skip news feed entry
+
         new_feed_entry = FeedEntry(title=nf_titles[x], description=nf_descriptions[x],
                                    url=nf_urls[x],
-                                   pub_date=nf_pubdate[x], guid=nf_guid[x])
-
-        # add it to db
+                                   pub_date=nf_pubdate[x], guid=guid)
+        # add them to db
         db.session.add(new_feed_entry)
 
     db.session.commit()
@@ -120,6 +123,7 @@ def add_feed():
         url=new_feed.url,
         category=new_feed.category
     )
+
 
 # endpoint to show all feeds
 @app.route("/feed/", methods=["GET"])
@@ -149,8 +153,8 @@ def feed_update(id):
     feed.description = description
     feed.url = url
     feed.category = category
-
     db.session.commit()
+
     return feed_schema.jsonify(feed)
 
 
@@ -175,26 +179,16 @@ def add_feed_entry():
 
     new_feed_entry = FeedEntry(title, description, url, pub_date, guid)
 
-    # we check if guid already in db
-    exists = db.session.query(
-        db.session.query(guid).exists()
-    ).scalar()
+    db.session.add(new_feed_entry)
+    db.session.commit()
 
-    if not exists:
-        db.session.add(new_feed_entry)
-        db.session.commit()
+    return jsonify(
+        title=new_feed_entry.title,
+        description=new_feed_entry.description,
+        url=new_feed_entry.url,
+        category=new_feed_entry.category
+    )
 
-        return jsonify(
-            title=new_feed_entry.title,
-            description=new_feed_entry.description,
-            url=new_feed_entry.url,
-            category=new_feed_entry.category
-        )
-    else:
-
-        return jsonify(
-            Error='GUID already exists in DB!'
-        )
 
 # endpoint to show all feed entries
 @app.route("/feed/entry/", methods=["GET"])
@@ -208,6 +202,7 @@ def get_feed_entry():
 def feed_entry_detail(id):
     feed_entry = Feed.query.get(id)
     return feed_entry_schema.jsonify(feed_entry)
+
 
 # endpoint to update feed entry
 @app.route("/feed/entry/<id>/", methods=["PUT"])
@@ -227,12 +222,6 @@ def feed_entry_update(id):
 
     db.session.commit()
     return feed_entry_schema.jsonify(feed_entry)
-
-
-# 1 git clone
-# 2 totul intr-un readme: se instaleaza dependintele cu venv cu pip install + testing
-# cum se ruleaza testele automat cu o singura linie deschis server + RULAT TESTE + inchis server
-#apt-get install python-virtualenv
 
 """
 How to use: 
