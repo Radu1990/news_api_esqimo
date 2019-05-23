@@ -8,7 +8,7 @@ def generate_feed(x):
            'http://feeds.bbci.co.uk/news/technology/rss.xml',
            'http://feeds.reuters.com/reuters/UKdomesticNews?format=xml',
            'http://feeds.reuters.com/reuters/technologyNews?format=xml']
-    category = ['News', 'Technology', 'News', 'Technology']
+    category = ["News", "Technology", "News", "Technology"]
 
     return (
         {
