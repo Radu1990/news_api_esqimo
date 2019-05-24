@@ -13,17 +13,26 @@ update and delete specific records.
 Unittests that test the endpoints provided.
 Functionality is missing but can be added. 
 
-How to use: 
-1. Run $ python3.6
-2. import db object and generate SQLite database
-Use following code in python interactive shell
-    >>> from crud import db
-    >>> db.create_all()
-3. Run tests
-"""
-
 
 How to install
-$ pip install flask_sqlalchemy
-$ pip install flask_marshmallow
-$ pip install marshmallow-sqlalchemy
+sudo apt-get install python3.6
+sudo apt install python-pip
+sudo apt-get update
+sudo apt-get install python3-venv
+
+mkdir myproject
+cd myproject
+python3 -m venv venv
+clone the repo
+
+activate your virtualenv
+. venv/bin/activate
+pip install -r ./news_api_esqimo/text/requirements.txt
+
+deactivate
+
+
+
+
+
+
