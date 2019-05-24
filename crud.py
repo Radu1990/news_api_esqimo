@@ -3,17 +3,28 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 import parse_xml_data as px
 import os
+"""
+prerequisites:
+1. Flask to create an instance of a web application
+2. Request to get request data
+3. Jsonify to turn the JSON output into a Response object
+4. SQAlchemy from flask_sqlalchemy for accessing the database
+5. Marshmallow from flask_marshmallow to serialize object
+"""
 
-
+# This part create an instances of our web application
+# and sets path of our SQLite uri.
 app = Flask(__name__)
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://' + os.path.join(basedir, '/db/crud.sqlite')
+# On this part we are binding SQLAlchemy
+# and Marshmallow into our Flask application.
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
-guid_db = []
 
 
-# Creating Feed Database Table
+# Here we declare model called Feed and define
+# its field with it’s properties.
 class Feed(db.Model):
     __tablename__ = 'Feed'
     id = db.Column(db.Integer, primary_key=True, nullable=False)
@@ -30,6 +41,12 @@ class Feed(db.Model):
         self.category = category
 
 
+# This part defined structure of response of our endpoint.
+# We want that all of our endpoint will have JSON response.
+# Here we define that our JSON response will have 5 keys
+# ('id', 'title', 'description', 'url', 'category').
+# Also we defined user_schema as instance of UserSchema,
+# and user_schemas as instances of list of UserSchema.
 class FeedSchema(ma.Schema):
     class Meta:
         # Fields to expose
@@ -39,19 +56,10 @@ class FeedSchema(ma.Schema):
 feed_schema = FeedSchema()
 feed_schemas = FeedSchema(many=True)
 
-"""
-This part defined structure of response of our endpoint.
-We want that all of our endpoints will have JSON response.
-Here we define that our JSON response will have two keys
-(title, description, url and category). 
-Also we defined feed_schema as instance of FeedSchema, 
-and feed_schemas as instances of list of FeedSchema
-"""
 
-
-# Creating Feed_entry Database Table
+# We do the same for Feed Entry
 class FeedEntry(db.Model):
-    __tablename__ = 'Feed_entry'
+    __tablename__ = 'Feed_Entry'
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(80), nullable=False)
     description = db.Column(db.String(120), nullable=False)
@@ -78,8 +86,14 @@ class FeedEntrySchema(ma.Schema):
 feed_entry_schema = FeedEntrySchema()
 feeds_entries_schemas = FeedEntrySchema(many=True)
 
-
-# endpoint to create new feed
+# endpoint to create new feed.
+# set the route to “/feed/” and set HTTP methods to POST.
+# After we set the route and methods we define function that will executed if we access this endpoint.
+# On this function first we get 'title', 'description', 'url' and 'category' from request data.
+# After that we create new news feed using data from request data.
+# Then we create all the corresponding feed entries as-well.
+# Last we add new feed along with the feed entries
+# to data base and show new feed in JSON form as response.
 @app.route("/feed/", methods=["POST"])
 def add_feed():
     title = request.json['title']
@@ -133,14 +147,15 @@ def get_feed():
     return jsonify(result.data)
 
 
-# endpoint to get feed detail by id
+# We define endpoint to get user data based on id.
+# Pattern like “<id>” is parameter
 @app.route("/feed/<id>/", methods=["GET"])
 def feed_detail(id):
     feed = Feed.query.get(id)
     return feed_schema.jsonify(feed)
 
 
-# endpoint to update feed
+# endpoint to update feed based on id
 @app.route("/feed/<id>/", methods=["PUT"])
 def feed_update(id):
     feed = Feed.query.get(id)
@@ -223,15 +238,8 @@ def feed_entry_update(id):
     db.session.commit()
     return feed_entry_schema.jsonify(feed_entry)
 
-"""
-How to use: 
-1. Run $ python3.6
-2. import db object and generate SQLite database
-Use following code in python interactive shell
-    >>> from crud import db
-    >>> db.create_all()
-3. Run tests
-"""
 
+# Run
 if __name__ == '__main__':
+    db.create_all()
     app.run(debug=True)
