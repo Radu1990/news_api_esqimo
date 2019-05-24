@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 import parse_xml_data as px
 import os
+
 """
 prerequisites:
 1. Flask to create an instance of a web application
@@ -239,7 +240,9 @@ def feed_entry_update(id):
     return feed_entry_schema.jsonify(feed_entry)
 
 
+# create all tables
+db.create_all()
+
 # Run
 if __name__ == '__main__':
-    db.create_all()
     app.run(debug=True)
