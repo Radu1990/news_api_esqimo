@@ -65,7 +65,7 @@ class FeedEntry(db.Model):
     description = db.Column(db.String(), nullable=False)
     url = db.Column(db.String(), nullable=False)
     pub_date = db.Column(db.String(), nullable=False)
-    feed_id = db.Column(db.Integer(), db.ForeignKey("feed.id"))
+    feed_fk = db.Column(db.ForeignKey("feed.id"))
     guid = db.Column(db.String(), nullable=False)
 
     def __init__(self, title, description, url, pub_date, guid):
@@ -80,7 +80,7 @@ class FeedEntry(db.Model):
 class FeedEntrySchema(ma.Schema):
     class Meta:
         # Fields to expose
-        fields = ('title', 'description', 'url', 'pub_date', 'feed_id', 'guid')
+        fields = ('title', 'description', 'url', 'pub_date', 'guid')
 
 
 feed_entry_schema = FeedEntrySchema()
@@ -247,7 +247,6 @@ def recreate_database():
 
 
 recreate_database()
-
 
 # Run
 if __name__ == '__main__':
