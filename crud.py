@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 import parse_xml_data as px
-import os
+import config as cfg
 
 """
 prerequisites:
@@ -16,8 +16,7 @@ prerequisites:
 # This part create an instances of our web application
 # and sets path of our SQLite uri.
 app = Flask(__name__)
-basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://' + os.path.join(basedir, '/db/crud.sqlite')
+app.config['SQLALCHEMY_DATABASE_URI'] = cfg.DATABASE_URI
 # On this part we are binding SQLAlchemy
 # and Marshmallow into our Flask application.
 db = SQLAlchemy(app)
@@ -27,12 +26,12 @@ ma = Marshmallow(app)
 # Here we declare model called Feed and define
 # its field with it’s properties.
 class Feed(db.Model):
-    __tablename__ = 'Feed'
-    id = db.Column(db.Integer, primary_key=True, nullable=False)
-    title = db.Column(db.String(80), nullable=False)
-    description = db.Column(db.String(120), nullable=False)
-    url = db.Column(db.String(120), nullable=False)
-    category = db.Column(db.String(80), nullable=False)
+    __tablename__ = 'feed'
+    id = db.Column(db.Integer(), primary_key=True, nullable=False)
+    title = db.Column(db.String(), nullable=False)
+    description = db.Column(db.String(), nullable=False)
+    url = db.Column(db.String(), nullable=False)
+    category = db.Column(db.String(), nullable=False)
 
     def __init__(self, title, description, url, category):
 
@@ -60,14 +59,14 @@ feed_schemas = FeedSchema(many=True)
 
 # We do the same for Feed Entry
 class FeedEntry(db.Model):
-    __tablename__ = 'Feed_Entry'
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(80), nullable=False)
-    description = db.Column(db.String(120), nullable=False)
-    url = db.Column(db.String(120), nullable=False)
-    pub_date = db.Column(db.String(80), nullable=False)
-    feed_id = db.Column(db.Integer, db.ForeignKey("Feed.id"))
-    guid = db.Column(db.String(80), nullable=False)
+    __tablename__ = 'feed_entry'
+    id = db.Column(db.Integer(), primary_key=True)
+    title = db.Column(db.String(), nullable=False)
+    description = db.Column(db.String(), nullable=False)
+    url = db.Column(db.String(), nullable=False)
+    pub_date = db.Column(db.String(), nullable=False)
+    feed_id = db.Column(db.Integer(), db.ForeignKey("feed.id"))
+    guid = db.Column(db.String(), nullable=False)
 
     def __init__(self, title, description, url, pub_date, guid):
         self.title = title
@@ -240,8 +239,15 @@ def feed_entry_update(id):
     return feed_entry_schema.jsonify(feed_entry)
 
 
-# create all tables
-db.create_all()
+def recreate_database():
+    # drop all tables
+    db.drop_all()
+    # create all tables
+    db.create_all()
+
+
+recreate_database()
+
 
 # Run
 if __name__ == '__main__':
