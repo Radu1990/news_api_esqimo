@@ -124,19 +124,13 @@ def add_feed():
         # if already in DB skip news feed entry
 
         new_feed_entry = FeedEntry(title=nf_titles[x], description=nf_descriptions[x],
-                                   url=nf_urls[x],
-                                   pub_date=nf_pubdate[x], guid=guid)
+                                   url=nf_urls[x], pub_date=nf_pubdate[x], guid=guid)
         # add them to db
         db.session.add(new_feed_entry)
 
     db.session.commit()
 
-    return jsonify(
-        title=new_feed.title,
-        description=new_feed.description,
-        url=new_feed.url,
-        category=new_feed.category
-    )
+    return feed_schema.jsonify(new_feed)
 
 
 # endpoint to show all feeds
@@ -151,8 +145,8 @@ def get_feed():
 # Pattern like “<id>” is parameter
 @app.route("/feed/<id>/", methods=["GET"])
 def feed_detail(id):
-    feed = Feed.query.get(id)
-    return feed_schema.jsonify(feed)
+    feed = FeedEntry.query.get(id)
+    return feed_entry_schema.jsonify(feed)
 
 
 # endpoint to update feed based on id
@@ -169,7 +163,7 @@ def feed_update(id):
     feed.url = url
     feed.category = category
     db.session.commit()
-
+    #TODO delete all feed entries from old feed and insert new ones
     return feed_schema.jsonify(feed)
 
 
