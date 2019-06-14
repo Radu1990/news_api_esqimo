@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 import parse_xml_data as px
-import config as cfg
+import os
 
 """
 prerequisites:
@@ -16,7 +16,8 @@ prerequisites:
 # This part create an instances of our web application
 # and sets path of our SQLite uri.
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = cfg.DATABASE_URI
+basedir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://' + os.path.join(basedir, '/db/crud.sqlite')
 # On this part we are binding SQLAlchemy
 # and Marshmallow into our Flask application.
 db = SQLAlchemy(app)
@@ -241,6 +242,7 @@ def recreate_database():
 
 
 recreate_database()
+
 
 # Run
 if __name__ == '__main__':
